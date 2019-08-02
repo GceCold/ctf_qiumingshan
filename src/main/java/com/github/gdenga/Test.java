@@ -3,7 +3,7 @@ package com.github.gdenga;
 
 import org.apache.http.impl.client.DefaultHttpClient;
 
-import java.io.*;
+import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 import java.util.Date;
 
@@ -21,11 +21,11 @@ public class Test {
         String charset = "(\\d+[+\\-*])+(\\d+)";
 
         Date start = new Date();
-        DefaultHttpClient httpClient = new DefaultHttpClient(HttpClientTestDemo.cm, HttpClientTestDemo.parentParams);
-        httpClient.setHttpRequestRetryHandler(HttpClientTestDemo.httpRequestRetryHandler);
+        DefaultHttpClient httpClient = new DefaultHttpClient(HttpClient.cm, HttpClient.parentParams);
+        httpClient.setHttpRequestRetryHandler(HttpClient.httpRequestRetryHandler);
         try {
 
-            result = HttpClientTestDemo.post(httpClient, "http://123.206.87.240:8002/qiumingshan/",new ArrayList<>());
+            result = HttpClient.post(httpClient, "http://123.206.87.240:8002/qiumingshan/",new ArrayList<>());
 
             String[] s1 = result.split(charset);
             calculator.caculate(result.replaceAll(s1[0], "").replace(s1[1], ""));
@@ -35,7 +35,7 @@ public class Test {
 
             Object [] params = new Object[]{"value"};
             Object [] value = new Object[]{calculator.getResult()};
-            result = HttpClientTestDemo.post(httpClient, "http://123.206.87.240:8002/qiumingshan/",HttpClientTestDemo.getParams(params,value));
+            result = HttpClient.post(httpClient, "http://123.206.87.240:8002/qiumingshan/", HttpClient.getParams(params,value));
             System.out.println(result);
         } catch (UnsupportedEncodingException ex) {
             ex.printStackTrace();

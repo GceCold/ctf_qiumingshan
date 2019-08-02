@@ -4,7 +4,6 @@ import org.apache.http.*;
 import org.apache.http.client.ClientProtocolException;
 import org.apache.http.client.HttpRequestRetryHandler;
 import org.apache.http.client.entity.UrlEncodedFormEntity;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.params.ClientPNames;
 import org.apache.http.client.params.CookiePolicy;
@@ -39,7 +38,7 @@ import java.util.zip.GZIPInputStream;
  * @date: 2019/8/2 9:21
  * @content:
  */
-public class HttpClientTestDemo {
+public class HttpClient {
     public static final int MAX_TOTAL_CONNECTIONS = 400;
 
     public static final int MAX_ROUTE_CONNECTIONS = 100;
